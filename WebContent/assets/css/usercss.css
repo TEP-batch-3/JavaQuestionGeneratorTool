@@ -1,0 +1,206 @@
+lable{
+	font-size: x-large;
+	font-weight: bolder;
+}
+.adminbody{
+	background-color: whitesmoke;
+}
+.container{
+    background-color: white;
+    width: auto;
+    height:auto;
+	margin-top: 4%;
+	-webkit-box-shadow: 15px 21px 12px 3px rgba(0,0,0,0.56); 
+	box-shadow: 15px 21px 12px 3px rgba(0,0,0,0.56);
+	border-radius: 15px;
+
+	align-items: center;
+	padding: 20px;
+	z-index: 1;
+}
+.col-sm-3{
+    color: white;
+    height: 50%;
+    border-radius: 5px;
+	margin-top: 5%;
+	text-align: center;
+}
+.btn-outline-success:hover{
+background-color: midnightblue;
+color: white;
+}
+.btn-outline-success{
+	border-color: midnightblue;
+	color: midnightblue;
+	width: 80%;
+}
+
+/* Modal Content/Box */
+.modal-content {
+	background-color: #fefefe;
+	margin: 5% auto 15% auto;
+	/* 5% from the top, 15% from the bottom and centered */
+/* 	border: 1px solid #888; */
+    width: 28%; /* Could be more or less, depending on screen size */
+    box-shadow: 10px 16px 18px 4px rgba(0,0,0,0.56);
+}
+/* Center the image and position the close button */
+.imgcontainer {
+	text-align: center;
+	margin: 10px;
+	position: relative;
+}
+
+.containerpop{
+	    height: auto;
+    align-items: center;
+    padding: 20px;
+    z-index: 1;
+    border-radius: 20px;
+    font-size: 20px;
+    padding-bottom: 20px;
+    margin-top: 33px;
+    text-align: center;
+}
+.closepop {
+      position: absolute;
+    right: 12px;
+    top: -5px;
+    color: black;
+    font-size: 40px;
+    font-weight: bold;
+    cursor: pointer;
+    opacity: 0.3;
+}
+.closepop:hover {
+    color: red;
+    font-weight: bold;
+    cursor: pointer;
+    opacity: 0.9;
+}
+.containera{
+  padding: inherit;
+    width: auto;
+    text-align: center;
+}
+.tit{
+  font-size: 26px;
+    font-weight: revert;
+}
+.modal {
+    position: fixed;
+    z-index: 1;
+    left: 0;
+    top: 0;
+    width: auto;
+    height: auto;
+    background-color: whitesmoke;
+}
+@media screen and (min-device-width: 1200px) and (max-device-width:
+	1600px) {
+	.group {
+		  margin-top: 20px;
+       width: 75%;
+	margin-left: 15%;
+	}
+	.co {
+		margin-bottom: 10px;
+	}
+}
+.column2 {
+	width: 100%;
+	padding: 10px;
+	height: auto;
+	border: 2px;
+	outline: 2px;
+	font-weight: bold;
+	text-align: center;
+	position: relative;
+}
+.btn1 {
+   color: white;
+    text-align: center;
+    padding: 10px 20px 10px 20px;
+    width: auto;
+    font-size: 18px;
+    margin-top: 17px;
+    margin-bottom: 19px;
+    background-color: midnightblue;
+}
+.btn1:hover{
+	color: white;
+	background: #28a745;
+}
+.btn1:onclick{
+	background: #28a745;
+}
+.form-control {
+    outline: none;
+	border: none;
+	    box-shadow: 0.5px 0.5px 0.5px 1px rgba(0,0,0,0.56);
+}
+.dropdown-menu{
+	width: 80%;
+    border: none;
+	padding: 20px;
+	background: transparent;
+}
+.dropdown-menu.show
+{
+	top: -14px;
+	left: 44px;
+	float: right;
+}
+#customers {
+	font-family: Arial, Helvetica, sans-serif;
+	border-collapse: collapse;
+	width: 100%;
+}
+
+#customers td, #customers th {
+	border: 1px solid #ddd;
+	padding: 8px;
+}
+
+#customers tr:nth-child(even) {
+	background-color: #f2f2f2;
+}
+
+#customers tr:hover {
+	background-color: #ddd;
+}
+
+#customers th {
+	padding-top: 12px;
+	padding-bottom: 12px;
+	text-align: center;
+	background-color: #191970;
+	color: white;
+}
+.scroll{
+   height: 350px;
+    overflow-y: scroll;
+    }
+.btn2{
+	    color: green;
+    text-align: center;
+    width: auto;
+    font-size: 10px;
+}
+
+  #checkBoxes1, #checkBoxes2 {
+   border: 1px #000000;
+    border-radius: 7px;
+    width: 94%;
+    margin-left: 3%;
+    padding-left: 6%;
+    padding-top: 2%;
+    box-shadow: 0.5px 0.5px 0.5px 1px rgba(0,0,0,0.56);
+}
+
+      #checkBoxes1 label {
+          display: block;
+	  }
+	   #checkBoxes2 label {
+          display: block;
+      }
