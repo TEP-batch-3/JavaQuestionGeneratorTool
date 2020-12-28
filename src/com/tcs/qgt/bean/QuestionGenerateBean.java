@@ -1,14 +1,18 @@
 package com.tcs.qgt.bean;
 
+import java.util.List;
+
 public class QuestionGenerateBean {
 
 	private static String entity;
 	private static int entityid;
 	private static int level;
-	private static String operation;
+	private static List<String> operation;
 	private static int noOfQuestions;
 	private static int publicTestCase;
 	private static int privateTestCase;
+	private static int level1checkcount;
+	private static int level2checkcount;
 	
 	public  String getEntity() {
 		return entity;
@@ -26,20 +30,13 @@ public class QuestionGenerateBean {
 		QuestionGenerateBean.level = level;
 	}
 
-	public String getOperation() {
-		return operation;
-	}
-
-	public void setOperation(String operation) {
-		this.operation = operation;
-	}
 
 	public int getNoOfQuestions() {
 		return noOfQuestions;
 	}
 
 	public void setNoOfQuestions(int noOfQuestions) {
-		this.noOfQuestions = noOfQuestions;
+		QuestionGenerateBean.noOfQuestions = noOfQuestions;
 	}
 
 	public int getPublicTestCase() {
@@ -47,7 +44,7 @@ public class QuestionGenerateBean {
 	}
 
 	public void setPublicTestCase(int publicTestCase) {
-		this.publicTestCase = publicTestCase;
+		QuestionGenerateBean.publicTestCase = publicTestCase;
 	}
 
 	public int getPrivateTestCase() {
@@ -55,7 +52,7 @@ public class QuestionGenerateBean {
 	}
 
 	public void setPrivateTestCase(int privateTestCase) {
-		this.privateTestCase = privateTestCase;
+		QuestionGenerateBean.privateTestCase = privateTestCase;
 	}
 
 	public int getEntityid() {
@@ -63,7 +60,31 @@ public class QuestionGenerateBean {
 	}
 
 	public void setEntityid(int entityid) {
-		this.entityid = entityid;
+		QuestionGenerateBean.entityid = entityid;
+	}
+
+	public List<String> getOperation() {
+		return operation;
+	}
+
+	public void setOperation(List<String> operation) {
+		QuestionGenerateBean.operation = operation;
+	}
+
+	public int getLevel1checkcount() {
+		return level1checkcount;
+	}
+
+	public void setLevel1checkcount(int level1checkcount) {
+		QuestionGenerateBean.level1checkcount = level1checkcount;
+	}
+
+	public int getLevel2checkcount() {
+		return level2checkcount;
+	}
+
+	public void setLevel2checkcount(int level2checkcount) {
+		QuestionGenerateBean.level2checkcount = level2checkcount;
 	}
 	
 }

@@ -27,6 +27,9 @@ public class QuestionGenerateDAO {
 		System.out.println(qgb.getNoOfQuestions());
 		System.out.println(qgb.getPublicTestCase());
 		System.out.println(qgb.getPrivateTestCase());
+		System.out.println(qgb.getLevel1checkcount());
+		System.out.println(qgb.getLevel2checkcount());
+		
 		System.out.println(lb.getUsername());
 		String empid = lb.getUsername();
 		
@@ -41,7 +44,7 @@ public class QuestionGenerateDAO {
 				 System.out.println("db enity"+entityId);
 			 }
 			
-			eqs.generateQuestion(empid, "1");
+				 eqs.generateQuestion(empid, "1");
 		} catch (Exception e) {
 			// TODO Auto-generated catch block
 			e.printStackTrace();

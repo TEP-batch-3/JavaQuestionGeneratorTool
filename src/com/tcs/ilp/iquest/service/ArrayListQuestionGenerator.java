@@ -6,6 +6,7 @@ import java.util.ArrayList;
 import java.util.Calendar;
 import java.util.Date;
 import java.util.HashMap;
+import java.util.Iterator;
 import java.util.List;
 import java.util.Map;
 import java.util.Map.Entry;
@@ -15,6 +16,7 @@ import com.tcs.ilp.iquest.bean.Entity;
 import com.tcs.ilp.iquest.bean.EntityMapping;
 import com.tcs.ilp.iquest.dao.EntityDAO;
 import com.tcs.ilp.iquest.dao.FieldEntityMappingDAO;
+import com.tcs.qgt.bean.QuestionGenerateBean;
 
 public class ArrayListQuestionGenerator extends QuestionGenerator {
 	/*
@@ -408,13 +410,18 @@ public class ArrayListQuestionGenerator extends QuestionGenerator {
 										className = entry.getKey();
 										mapList = entry.getValue();	   
 									}
-									
-									//generate search method on identity or non-identity field
+									QuestionGenerateBean qgb = new QuestionGenerateBean();
+									List<String> Operations =  qgb.getOperation() ;
+									Iterator<String> Operationiterator = Operations.iterator();
+									//generate search method on identity or non-identity field							
 									for(int k=0; k < mapList.size() ;k++)
 									{
+										while(Operationiterator.hasNext()) {
+										System.out.println(mapList.size());
 										if((mapList.get(k).getIsIdentity().equals("true")) && (mapList.get(k).getMappingType().trim().equals("Regular")))
 										{
-											method = "search"+className+"By"+mapList.get(k).getTitle();
+											method = Operationiterator.next()+className+"By"+mapList.get(k).getTitle();
+											System.out.println(method);
 											idMap.put(mapList.get(k).getTitle(), mapList.get(k).getFieldType());
 											questionList.add(method);
 											methodNameList.add(method);
@@ -425,7 +432,8 @@ public class ArrayListQuestionGenerator extends QuestionGenerator {
 										}
 										if((mapList.get(k).getIsIdentity().equals("false")) && (mapList.get(k).getMappingType().trim().equals("Regular")))
 										{
-											method = "search"+className+"By"+mapList.get(k).getTitle();
+											method = Operationiterator.next()+className+"By"+mapList.get(k).getTitle();
+											System.out.println(method);
 											nonIdMap.put(mapList.get(k).getTitle(), mapList.get(k).getFieldType());
 											questionList.add(method);
 											methodNameList.add(method);
@@ -434,7 +442,8 @@ public class ArrayListQuestionGenerator extends QuestionGenerator {
 													className+" objects for all values found with the given "+mapList.get(k).getTitle()+" else return null if not found.");
 											totalNoOfPossibleMethods++;
 										}
-									}
+										}
+									}		
 									for (Entry<String, String> entry : idMap.entrySet()) {
 											//questionList.add("replace"+entry.getKey()+"By"+entry.getKey()); 
 											method = "replace"+className+"By"+entry.getKey();

@@ -28,7 +28,7 @@ private String empId;
     @Produces(MediaType.APPLICATION_JSON)
 	public String[] generateQuestion(@FormParam("empId") String empId,
             @FormParam("topicId") String topicId) throws Exception {
-		
+	 	
 		DynamicQuestionService dynamicService=new DynamicQuestionService();
 		QuestionGenerateBean qgb = new QuestionGenerateBean();
 		

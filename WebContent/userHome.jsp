@@ -72,9 +72,9 @@ else{
     </select>
     </div>
   </div>
-  
     <div class="form-group row " id="level">
-    <div class="col-sm-2"></div>
+    <div class="col-sm-2"> 
+    </div>
     <label for="inputPassword" class="col-sm-2 col-form-label">Operation :</label>
     <div class="col-sm-4" style="margin-top: 7px;">
     <label class="form-check-label" for="inlineRadio1">Level 1</label>
@@ -85,14 +85,13 @@ else{
              <input class="form-check-input" type="radio" id="l2" style="margin-left: 15px;margin-top: 6px;" name="level"  value="2" onclick="show()" > 
     </div>
 	</div>
-<div class="form-group row" id="lev1" style="display: none;margin-left: 34%;width: 49%;">
+<div class="form-group row" id="lev1" style=" display:none;margin-left: 34%;width: 49%;">
 	 <div class="col-sm-2"></div>
 	  <div class="col-sm-6"></div>
        <div class="col-sm-6">
         <input type="text" id="op1" class="btn btn-default btn-sm dropdown-toggle form-control" data-toggle="dropdown" value="Select the Operations" ><span class="caret"></span>
-	<div class="dropdown-menu level1" style="    background-color: white;
+	<div class="dropdown-menu level1"id="lev1checkbox" style="background-color: white;
     box-shadow: 0.5px 0.5px 0.5px 1px rgba(0,0,0,0.56);">
-	
 	<%
 			query = "Select * from TBL_OPERATION where level = 1";
     		try{
@@ -103,7 +102,7 @@ else{
 					String title = rs.getString("title"); 
 					%>
 					<label for="<%=title %>">
-					<a href="#" class="small" data-value="<%=title %>" tabIndex="-1"><input type="checkbox" name="level1Operations" id="opselect1" value="<%=title %>"/>&nbsp;<%=title %> <br></a>
+					<a href="#" class="small" data-value="<%=title %>" tabIndex="-1"><input type="checkbox" name="level1Operations" id="opselect1" value="<%=title %>"/>&nbsp;<%=title %><br></a> 
                   </label>
 					<%
 				l1++;
@@ -119,16 +118,15 @@ else{
 			    e.printStackTrace();
 				}
          %> </div>
-  </div>
 </div>
-<div class="form-group row" id="lev2" style="display: none;margin-left: 34%;width: 49%;">
+</div>
+<div class="form-group row" id="lev2" style=" display:none;margin-left: 34%;width: 49%;">
 	 <div class="col-sm-2"></div>
 	  <div class="col-sm-6"></div>
        <div class="col-sm-6">
         <input type="text" id="op2" class="btn btn-default btn-sm dropdown-toggle form-control" data-toggle="dropdown" value="Select the Operations" ><span class="caret"></span>
-	<div class="dropdown-menu level2" style="    background-color: white;
+	<div class="dropdown-menu level2"id="lev2checkbox" style="background-color: white;
     box-shadow: 0.5px 0.5px 0.5px 1px rgba(0,0,0,0.56);">
-	
 	<%
 			query = "Select * from TBL_OPERATION where level = 2";
     		try{
@@ -155,10 +153,8 @@ else{
 			    e.printStackTrace();
 				}
          %> </div>
-  </div>
 </div>
-	
-    <div class="form-group row">
+</div>  <div class="form-group row">
     <div class="col-sm-2"></div>
       <div class="col-sm-2">No Of Questions :</div>
       <div class="col-sm-6">
@@ -183,10 +179,13 @@ else{
           <input class="btn1 btn-info bb btn btn-outline-success " type="submit" name="Submit"
             value="Generate">
         </div>
+        <input type="hidden" id="checkcount1" name="checkcount1" value="0">
+  		<input type="hidden" id="checkcount2" name="checkcount2"value="0">
 </form>
 	<span style="font-size: xx-small; color:red;">Note : Double Click to select the Radio button </span>
   </div>
 <script type="text/javascript">
+/* radio Button values */
 var level
 $('input[type=radio]').click(function(e) {
 
@@ -200,9 +199,11 @@ $('input[type=radio]').click(function(e) {
       $('.result').html(level);
 
   });
-var options1 = [];
+/*   Display the operations */
+	 var options1 = [];
 var options2 = [];
-
+var count1 = 0;
+var count2 = 0;
 $( '.level1 a' ).on( 'click', function( event ) {
 
    var $target = $( event.currentTarget ),
@@ -213,12 +214,16 @@ $( '.level1 a' ).on( 'click', function( event ) {
    if ( ( idx = options1.indexOf( val ) ) > -1 ) {
       options1.splice( idx, 1 );
       setTimeout( function() { $inp.prop( 'checked', false ) }, 0);
-   } else {
+      count1--;
+   } else {	
       options1.push( val );
       setTimeout( function() { $inp.prop( 'checked', true ) }, 0);
+      count1++;
    }
+   var $checkboxes = $('#lev2checkbox input[type="checkbox"]');
    $( event.target ).blur();
    document.getElementById("op1").value = options1 ;
+   document.getElementById("checkcount1").value = count1 ;
    console.log( options1 );
    return false;
 });
@@ -233,16 +238,20 @@ $( '.level2 a' ).on( 'click', function( event ) {
    if ( ( idx = options2.indexOf( val ) ) > -1 ) {
       options2.splice( idx, 1 );
       setTimeout( function() { $inp.prop( 'checked', false ) }, 0);
+      count2--;
    } else {
       options2.push( val );
       setTimeout( function() { $inp.prop( 'checked', true ) }, 0);
+      count2++;
    }
    $( event.target ).blur();
    document.getElementById("op2").value = options2 ;
+   document.getElementById("checkcount2").value = count2 ;
    console.log( options2 );
    return false;
 });
-function show() {
+/* show the input box based on radio values */
+ function show() {
 	  var x = document.getElementById("lev1");
 	  var y = document.getElementById("lev2");
 	  if (x.style.display === "none" && y.style.display === "none" && level == 1) {
